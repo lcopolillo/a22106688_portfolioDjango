@@ -25,7 +25,7 @@
 
 
         <div class="home_img">
-          <img src="assets/img/profileLinkedin.jfif" alt="">
+          <img src="{% static 'portfolio/img/profileLinkedin.jfif' %}" alt="">
         </div>
 
 
@@ -103,12 +103,12 @@
 
 
         <div class="about_button">
-          <a download="" href="assets/pdf/Luiza's CV.pdf" class="button button_flex">
+          <a download="" href="{% static 'portfolio/pdf/cv_luiza.pdf' %}" class="button button_flex">
             Download CV<i class="uil uil-file-download button_icon"></i>
           </a>
         </div>
       </div>
-      <img src="assets/img/portfolio1.jpg" alt="Image1" class="about_img" />
+      <img src="{% static 'portfolio/img/portfolio1.jpg' %}" alt="Image1" class="about_img" />
     </div>
   </section>
 
@@ -385,7 +385,7 @@
       <div class="swiper-wrapper">
         <!--1-->
         <div class="portfolio_content grid swiper-slide">
-          <img src="assets/img/project1.png" alt="" class="portfolio_img">
+          <img src="{% static 'portfolio/img/project1.png' %}" alt="" class="portfolio_img">
 
           <div class="portfolio_data">
             <h3 class="portfolio_title">"DEISI Minesweeper"</h3>
@@ -402,7 +402,7 @@
 
         <!--2-->
         <div class="portfolio_content grid swiper-slide">
-          <img src="assets/img/project2.png" alt="" class="portfolio_img">
+          <img src="{% static 'portfolio/img/project2.png' %}" alt="" class="portfolio_img">
 
           <div class="portfolio_data">
             <h3 class="portfolio_title">"DEISI Jungle"</h3>
@@ -418,7 +418,7 @@
 
         <!--3-->
         <div class="portfolio_content grid swiper-slide">
-          <img src="assets/img/project3.png" alt="" class="portfolio_img">
+          <img src="{% static 'portfolio/img/project3.png' %}" alt="" class="portfolio_img">
 
           <div class="portfolio_data">
             <h3 class="portfolio_title">Responsive Web Desgin</h3>
@@ -456,7 +456,7 @@
       <div class="swiper-wrapper">
         <!--1-->
         <div class="portfolio_content grid swiper-slide">
-          <img src="assets/img/tfc1.png" alt="" class="portfolio_img">
+          <img src="{% static 'portfolio/img/tfc1.png' %}" alt="" class="portfolio_img">
 
           <div class="portfolio_data">
             <h3 class="portfolio_title">Parque de Estacionamento – Back End</h3>
@@ -472,7 +472,7 @@
 
         <!--2-->
         <div class="portfolio_content grid swiper-slide">
-          <img src="assets/img/tfc2.png" alt="" class="portfolio_img">
+          <img src="{% static 'portfolio/img/tfc2.png' %}" alt="" class="portfolio_img">
 
           <div class="portfolio_data">
             <h3 class="portfolio_title">Tickets e análise estatística – Front End e Back End</h3>
@@ -489,7 +489,7 @@
 
         <!--3-->
         <div class="portfolio_content grid swiper-slide">
-          <img src="assets/img/tfc3.png" alt="" class="portfolio_img">
+          <img src="{% static 'portfolio/img/tfc3.png' %}" alt="" class="portfolio_img">
 
           <div class="portfolio_data">
             <h3 class="portfolio_title">Gestão de centros de investigação</h3>
@@ -518,7 +518,6 @@
 
   </section>
 
-
   <!--blog DONE-->
   <section class="blog section" id="blog">
     <div class="blog_bg">
@@ -526,7 +525,7 @@
         <div class="blog_data">
           <h2 class="blog_title">More!</h2>
           <p class="blog_description">Here you can learn more about this website, and programming in general!</p>
-          <a href="more.html" class="button button_flex button_small button_white">
+          <a href="{% url 'portfolio:more' %}" class="button button_flex button_small button_white">
             Explore
             <i class="uil uil-arrow-right blog_icon button_icon"></i>
           </a>

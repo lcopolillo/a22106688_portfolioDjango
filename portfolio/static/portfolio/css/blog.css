@@ -1,4 +1,4 @@
-/* static/pages/css/base.css */
+/* static/pages/css/base.css
 
 header p {
     font-style: italic;
@@ -7,6 +7,7 @@ header p {
 
 body {
     background-color: royalblue;
+    margin: 0 auto;
 }
 
 
@@ -18,7 +19,7 @@ body {
 
 main {
     width: 800px;
-    margin: auto;
+    margin: 0 auto;
     margin-top: 100px;
     padding: 10px;
     background-color: white;
@@ -45,4 +46,4 @@ footer {
     width: 100%;
     color: white;
     text-align: center;
-}
+} */

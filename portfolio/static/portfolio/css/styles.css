@@ -1208,6 +1208,22 @@ p.parallax_info {
   fill: var(--first-color) 
 }
 
+/*-----BLOG-----*/
+.info {
+  font-size: 0.7em;
+  color: lightgray;
+}
+
+.blog_page_container{
+  background-color: var(--input-color);
+}
+
+.new_post_button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /*media queries*/
 @media screen and (min-width: 568px) {
   .home_content {

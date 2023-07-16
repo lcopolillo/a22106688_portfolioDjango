@@ -23,7 +23,7 @@ def blog_home_page_view(request):
 
 #new post
 def blog_new_post_view(request):
-    form = PostForm(request.POST or None)
+    form = PostForm(request.POST or None, request.FILES)
     if form.is_valid():
         form.save()
         return redirect('portfolio:blog_home')

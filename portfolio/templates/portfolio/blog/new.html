@@ -1,14 +1,18 @@
 {% extends 'portfolio/blog/home.html' %}
 
 {% block main %}
-<h3>New Post</h3>
+<section class="new_page section" id="new">
+    <div>
+        <h3>New Post</h3>
 
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
 
-    <a href="{% url 'portfolio:blog_home' %}" role="button" class="btn btn-warning">Cancel</a>
-    <input type="submit" value="Save" class="btn btn-success">
-</form>
+            <a href="{% url 'portfolio:blog_home' %}" role="button" class="btn btn-warning">Cancel</a>
+            <input type="submit" value="Save" class="btn btn-success">
+        </form>
+    </div>
+</section>
 
 {% endblock %}

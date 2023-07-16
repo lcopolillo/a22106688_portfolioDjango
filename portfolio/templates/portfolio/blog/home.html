@@ -8,17 +8,28 @@
 
 {% block main %}
 {% for post in posts %}
-<p>
-    {{ post.titulo }}
-    <span class="info">
-        (by {{post.autor}} at {{ post.data.day }}/{{ post.data.month }}/{{ post.data.year }})
-    </span>
-    <br>{{ post.descricao }}
-    <a href="{% url 'portfolio:blog_edit' post.id %}" class="btn btn-warning  btn-sm"
-        style="float: right; margin-right: 10px">
-        Edit
-    </a>
-</p>
-{% endfor %}
-<a href="{% url 'portfolio:blog_new' %}" class="btn btn-success btn-block">+ New Post</a>
-{% endblock %}
+<section class="blog_page section" id="blog_p">
+
+    <h2 class="section_title">Blog</h2>
+    <span class="section_subtitle">Here you can create, edit, and delete posts!</span>
+
+    <div class="blog_page_container container grid">
+        <div class="new_post_button">
+            <a href="{% url 'portfolio:blog_new' %}" class="button button_flex">+ New Post</a>
+        </div>
+        <div class="blog_post_container container grid" style="background-color:gainsboro; border-radius: 5px; padding: 20px;">
+            <h2>{{ post.titulo }}</h2>
+            <img src="{% static 'portfolio/img/tay2.jpg' %}" height="200px" width="auto" style="border-radius: 5px;">
+            <span class="info">
+                (by {{post.autor}} at {{ post.data.day }}/{{ post.data.month }}/{{ post.data.year }})
+            </span>
+            {{ post.descricao }}
+            <a href="{% url 'portfolio:blog_edit' post.id %}" class="button_flex">
+                Edit
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+
+</section>
+{% endblock main %}

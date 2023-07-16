@@ -1,14 +1,18 @@
 {% extends 'portfolio/blog/home.html' %}
 
 {% block main %}
-<h3>Post</h3>
-<form action="{% url 'portfolio:blog_edit' post_id %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-
-    <a href="{% url 'portfolio:blog_home' %}" role="button" class="btn btn-warning">Cancel</a>
-    <input type="submit" value="Save" class="btn btn-success">
-    <a href="{% url 'portfolio:blog_remove' post_id %}" role="button" class="btn btn-danger">Delete</a>
-</form>
+<section class="edit_page section" id="edit">
+    <div>
+        <h3>Post</h3>
+    <form action="{% url 'portfolio:blog_edit' post_id %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+    
+        <a href="{% url 'portfolio:blog_home' %}" role="button" class="btn btn-warning">Cancel</a>
+        <input type="submit" value="Save" class="btn btn-success">
+        <a href="{% url 'portfolio:blog_delete' post_id %}" role="button" class="btn btn-danger">Delete</a>
+    </form>
+    </div>
+</section>
 
 {% endblock %}

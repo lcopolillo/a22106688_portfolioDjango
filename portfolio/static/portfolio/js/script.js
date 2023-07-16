@@ -104,7 +104,7 @@ modalCloses.forEach((modalClose) => {
   });
 });
 
-/*section active link*/
+/*section active link
 const sections = document.querySelectorAll("section[id]");
 
 function scrollActive() {
@@ -126,7 +126,7 @@ function scrollActive() {
     }
   });
 }
-window.addEventListener("scroll", scrollActive);
+window.addEventListener("scroll", scrollActive);*/
 
 /*change background header*/
 function scrollHeader() {

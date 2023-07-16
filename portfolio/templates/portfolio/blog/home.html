@@ -1,0 +1,24 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{% load static %}
+<link rel="stylesheet" href="static/portfolio/css/blog.css">
+{% endblock %}
+
+{% block main %}
+{% for post in posts %}
+<p>
+    {{ post.titulo }}
+    <span class="info">
+        (by {{post.autor}} at {{ post.data.day }}/{{ post.data.month }}/{{ post.data.year }})
+    </span>
+    <br>{{ post.descricao }}
+    <a href="{% url 'portfolio:blog_edit' post.id %}" class="btn btn-warning  btn-sm"
+        style="float: right; margin-right: 10px">
+        Edit
+    </a>
+</p>
+{% endfor %}
+<a href="{% url 'portfolio:blog_new' %}" class="btn btn-success btn-block">+ New Post</a>
+{% endblock %}

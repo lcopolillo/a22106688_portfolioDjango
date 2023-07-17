@@ -37,13 +37,8 @@
                         </a>
                     </li>
                     <li class="nav_item">
-                        <a href="{% url 'portfolio:grad' %}" class="nav_link">
-                            <i class="uil uil-book nav_icon"></i> Graduation
-                        </a>
-                    </li>
-                    <li class="nav_item">
                         <a href="{% url 'portfolio:blog_home' %}" class="nav_link">
-                            <i class="uil uil-book nav_icon"></i> Blog <!--ALTERAR ICON-->
+                            <i class="uil uil-book nav_icon"></i> Blog
                         </a>
                     </li>
                     <li class="nav_item">
@@ -60,9 +55,13 @@
                         <a href="{% url 'portfolio:login' %}" class="nav_link">
                             {% if user.is_authenticated %}
                             <h2>Hi {{ user.username }}</h2>
-                            <a class="nav_link" href="{% url 'portfolio:logout' %}">Logout</a>
+                            <a class="nav_link" href="{% url 'portfolio:logout' %}">
+                                <i class="uil uil-user nav_icon"></i>Logout
+                                </a>
                             {% else %}
-                            <a class="nav_link" href="{% url 'portfolio:login' %}">Login</a>
+                            <a class="nav_link" href="{% url 'portfolio:login' %}">
+                                <i class="uil uil-user nav_icon"></i>Login
+                            </a>
                             {% endif %}
                         </a>
                     </li>

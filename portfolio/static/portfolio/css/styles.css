@@ -1224,6 +1224,10 @@ p.parallax_info {
   justify-content: center;
 }
 
+.like, .deslike{
+  text-decoration: none;
+}
+
 /*media queries*/
 @media screen and (min-width: 568px) {
   .home_content {

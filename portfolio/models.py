@@ -8,5 +8,8 @@ class Post(models.Model):
     link = models.URLField(max_length=100, blank=True, null=True)
     imagem = models.ImageField(upload_to='blog/', blank=True, null=True)
 
+    like = models.IntegerField(default=0)
+    deslike = models.IntegerField(default=0)
+
     def __str__(self):
         return self.titulo[:20]

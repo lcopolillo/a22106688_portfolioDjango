@@ -11,22 +11,34 @@
 <section class="blog_page section" id="blog_p">
 
     <h2 class="section_title">Blog</h2>
-    <span class="section_subtitle">Here you can create, edit, and delete posts!</span>
+    <span class="section_subtitle">Here you can create, edit, and delete posts!
+        <br><div class="new_post_button">
+            <a href="{% url 'portfolio:blog_new' %}" style="margin: 20px;" class="button button_flex">+ New Post</a>
+        </div>
+    </span>
 
     <div class="blog_page_container container grid">
-        <div class="new_post_button">
-            <a href="{% url 'portfolio:blog_new' %}" class="button button_flex">+ New Post</a>
-        </div>
-        <div class="blog_post_container container grid" style="background-color:gainsboro; border-radius: 5px; padding: 20px;">
+        
+        <div class="blog_post_container container grid" style="border-radius: 5px; padding: 50px;">
+            
             <h2>{{ post.titulo }}</h2>
-            <img src="{% static 'portfolio/img/tay2.jpg' %}" height="200px" width="auto" style="border-radius: 5px;">
-            <span class="info">
+            <img src="{% static 'portfolio/img/imagemJS1.jpg' %}" height="200px" width="auto" style="border-radius: 5px;">
+            <span style="color: grey;" class="info">
                 (by {{post.autor}} at {{ post.data.day }}/{{ post.data.month }}/{{ post.data.year }})
             </span>
             {{ post.descricao }}
             <a href="{% url 'portfolio:blog_edit' post.id %}" class="button_flex">
                 Edit
             </a>
+            <a href="{% url 'portfolio:blog_delete' post.id %}" class="button_flex">Delete</a>
+
+            <div class="like_contanier">
+                <a href="{% url 'portfolio:blog_like' post.id %}" class="like">👍🏻</a>
+                <span style="color: blue;">{{post.like}}</span>
+
+                <a href="{% url 'portfolio:blog_deslike' post.id %}" class="deslike">👎🏻</a>
+                <span style="color: blue;">{{post.deslike}}</span>
+            </div> 
         </div>
     </div>
     {% endfor %}

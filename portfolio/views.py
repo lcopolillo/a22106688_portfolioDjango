@@ -48,3 +48,19 @@ def blog_edit_post_view(request, post_id):
 def blog_delete_post_view(request, post_id):
     Post.objects.get(id=post_id).delete()
     return HttpResponseRedirect(reverse('portfolio:blog_home'))
+
+#like post
+def blog_like_post(request, id_post):
+    likesNoPost = Post.objects.get(id=id_post).like
+    likesNoPost += 1
+    Post.objects.filter(id=id_post).update(like=likesNoPost)
+
+    return HttpResponseRedirect(reverse('portfolio:blog_home'))
+
+#deslike post
+def blog_deslike_post(request, idP):
+    deslikesNoPost = Post.objects.get(id=idP).deslike
+    deslikesNoPost += 1
+    Post.objects.filter(id=idP).update(deslike=deslikesNoPost)
+
+    return HttpResponseRedirect(reverse('portfolio:blog_home'))

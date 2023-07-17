@@ -3,23 +3,24 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!--icons-->
+    <!--icons-->
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" />
-  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
-  <script src="https://kit.fontawesome.com/8823c41758.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+    <script src="https://kit.fontawesome.com/8823c41758.js" crossorigin="anonymous"></script>
 
-  <!--swiper css-->
-  <link rel="stylesheet" href="{% static 'portfolio/css/swiper-bundle.min.css' %}" />
+    <!--swiper css-->
+    <link rel="stylesheet" href="{% static 'portfolio/css/swiper-bundle.min.css' %}" />
 
-  <!--css-->
-  <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
+    <!--css-->
+    <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}">
 
-  <title>Luiza Vidal | ULHT</title>
+    <title>Luiza Vidal | ULHT</title>
 </head>
 
 <body>
@@ -42,7 +43,7 @@
                     </li>
                     <li class="nav_item">
                         <a href="{% url 'portfolio:blog_home' %}" class="nav_link">
-                            <i class="uil uil-book nav_icon"></i> Blog
+                            <i class="uil uil-book nav_icon"></i> Blog <!--ALTERAR ICON-->
                         </a>
                     </li>
                     <li class="nav_item">
@@ -53,6 +54,16 @@
                     <li class="nav_item">
                         <a href="#contact" class="nav_link">
                             <i class="uil uil-phone nav_icon"></i> Contact
+                        </a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="{% url 'portfolio:login' %}" class="nav_link">
+                            {% if user.is_authenticated %}
+                            <h2>Hi {{ user.username }}</h2>
+                            <a class="nav_link" href="{% url 'portfolio:logout' %}">Logout</a>
+                            {% else %}
+                            <a class="nav_link" href="{% url 'portfolio:login' %}">Login</a>
+                            {% endif %}
                         </a>
                     </li>
                 </ul>
@@ -68,97 +79,97 @@
             </div>
         </nav>
     </header>
-    
+
     <!--main-->
     <main>{% block main %}
 
         {% endblock main %}
     </main>
-    
+
     <!--footer-->
-  <footer class="footer">
-    <div class="footer_bg">
-      <div class="footer_container container grid">
-        <div>
-          <h1 class="footer_title">Luiza Vidal</h1>
-          <span class="footer_subtitle">Computer Engineering</span>
+    <footer class="footer">
+        <div class="footer_bg">
+            <div class="footer_container container grid">
+                <div>
+                    <h1 class="footer_title">Luiza Vidal</h1>
+                    <span class="footer_subtitle">Computer Engineering</span>
+                </div>
+
+                <ul class="footer_links">
+                    <li>
+                        <a href="#home" class="footer_link">Home</a>
+                    </li>
+                    <li>
+                        <a href="#portfolio" class="footer_link">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="footer_link">Contact</a>
+                    </li>
+                </ul>
+
+                <div class="footer_socials">
+
+                    <a href="https://www.linkedin.com/in/lcopolillo/" target="_blank" class="footer_social">
+                        <i class="uil uil-linkedin-alt"></i>
+                    </a>
+                    <a href="https://github.com/lcopolillo" target="_blank" class="footer_social">
+                        <i class="uil uil-github-alt"></i>
+                    </a>
+                    <a href="https://wa.me/351962412557" target="_blank" class="footer_social">
+                        <i class="uil uil-whatsapp"></i>
+                    </a>
+
+                </div>
+
+
+            </div>
+            <p class="footer_copyright">&copy; Luiza Vidal, ULHT | 2023</p>
         </div>
+    </footer>
+    <!--date-->
+    <script>
+        const date = document.getElementById("todays_date");
+        const months = [
+            'janeiro',
+            'fevereiro',
+            'março',
+            'abril',
+            'maio',
+            'junho',
+            'julho',
+            'agosto',
+            'setembro',
+            'outubro',
+            'novembro',
+            'dezembro'
+            // "January",
+            // "February",
+            // "March",
+            // "April",
+            // "May",
+            // "June",
+            // "July",
+            // "August",
+            // "September",
+            // "October",
+            // "November",
+            // "December",
+        ];
+        const todaysDate = new Date();
+        const day = todaysDate.getDate();
+        const month = months[todaysDate.getMonth()];
+        const year = todaysDate.getFullYear();
 
-        <ul class="footer_links">
-          <li>
-            <a href="#home" class="footer_link">Home</a>
-          </li>
-          <li>
-            <a href="#portfolio" class="footer_link">Portfolio</a>
-          </li>
-          <li>
-            <a href="#contact" class="footer_link">Contact</a>
-          </li>
-        </ul>
+        date.textContent = `${day} de ${month}, ${year}`;</script>
 
-        <div class="footer_socials">
+    <!--scroll top-->
+    <a href="#" class="scrollup" id="scroll_up">
+        <i class="uil uil-angle-up scrollup_icon"></i>
+    </a>
 
-          <a href="https://www.linkedin.com/in/lcopolillo/" target="_blank" class="footer_social">
-            <i class="uil uil-linkedin-alt"></i>
-          </a>
-          <a href="https://github.com/lcopolillo" target="_blank" class="footer_social">
-            <i class="uil uil-github-alt"></i>
-          </a>
-          <a href="https://wa.me/351962412557" target="_blank" class="footer_social">
-            <i class="uil uil-whatsapp"></i>
-          </a>
+    <!--swiper js-->
+    <script src="{% static 'portfolio/js/swiper-bundle.min.js' %}"></script>
 
-        </div>
-
-
-      </div>
-      <p class="footer_copyright">&copy; Luiza Vidal, ULHT | 2023</p>
-    </div>
-  </footer>
-  <!--date-->
-  <script>
-    const date = document.getElementById("todays_date");
-    const months = [
-      'janeiro',
-      'fevereiro',
-      'março',
-      'abril',
-      'maio',
-      'junho',
-      'julho',
-      'agosto',
-      'setembro',
-      'outubro',
-      'novembro',
-      'dezembro'
-      // "January",
-      // "February",
-      // "March",
-      // "April",
-      // "May",
-      // "June",
-      // "July",
-      // "August",
-      // "September",
-      // "October",
-      // "November",
-      // "December",
-    ];
-    const todaysDate = new Date();
-    const day = todaysDate.getDate();
-    const month = months[todaysDate.getMonth()];
-    const year = todaysDate.getFullYear();
-
-    date.textContent = `${day} de ${month}, ${year}`;</script>
-
-  <!--scroll top-->
-  <a href="#" class="scrollup" id="scroll_up">
-    <i class="uil uil-angle-up scrollup_icon"></i>
-  </a>
-
-  <!--swiper js-->
-  <script src="{% static 'portfolio/js/swiper-bundle.min.js' %}"></script>
-
-  <!--script-->
-  <script src="{% static 'portfolio/js/script.js' %}"></script>
+    <!--script-->
+    <script src="{% static 'portfolio/js/script.js' %}"></script>
 </body>

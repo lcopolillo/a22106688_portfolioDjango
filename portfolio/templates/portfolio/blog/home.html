@@ -27,17 +27,20 @@
                 (by {{post.autor}} at {{ post.data.day }}/{{ post.data.month }}/{{ post.data.year }})
             </span>
             {{ post.descricao }}
+
+            {% if user.is_authenticated %}
             <a href="{% url 'portfolio:blog_edit' post.id %}" class="button_flex">
                 Edit
             </a>
+            {% endif %}
             <a href="{% url 'portfolio:blog_delete' post.id %}" class="button_flex">Delete</a>
 
             <div class="like_contanier">
                 <a href="{% url 'portfolio:blog_like' post.id %}" class="like">👍🏻</a>
-                <span style="color: blue;">{{post.like}}</span>
+                <span style="color: grey;">{{post.like}}</span>
 
                 <a href="{% url 'portfolio:blog_deslike' post.id %}" class="deslike">👎🏻</a>
-                <span style="color: blue;">{{post.deslike}}</span>
+                <span style="color: grey;">{{post.deslike}}</span>
             </div> 
         </div>
     </div>

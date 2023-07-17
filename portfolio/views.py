@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 
 from .models import Post
 from .forms import PostForm
@@ -33,6 +36,7 @@ def blog_new_post_view(request):
     return render(request, 'portfolio/blog/new.html', context)
 
 #edit post
+@login_required
 def blog_edit_post_view(request, post_id):
     post = Post.objects.get(id=post_id)
     form = PostForm(request.POST or None, instance=post)
@@ -64,3 +68,26 @@ def blog_deslike_post(request, idP):
     Post.objects.filter(id=idP).update(deslike=deslikesNoPost)
 
     return HttpResponseRedirect(reverse('portfolio:blog_home'))
+
+#login
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request,
+                            username=username,
+                            password=password)
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect(reverse('portfolio:home')) 
+        else:
+            return render(request, "portfolio/login.html", {
+                'message': "Invalid credentials."
+            })
+    return render(request, "portfolio/login.html") 
+
+def logout_view(request):
+     logout(request)
+     return render(request, "portfolio/login.html", {
+                'message': "Successfuly loged out."
+            })

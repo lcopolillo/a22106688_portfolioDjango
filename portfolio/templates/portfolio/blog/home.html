@@ -7,22 +7,23 @@
 {% endblock %}
 
 {% block main %}
+<h2 class="section_title">Blog</h2>
+<span class="section_subtitle">Here you can create, edit, and delete posts!
+    <br>
+    <div class="new_post_button">
+        <a href="{% url 'portfolio:blog_new' %}" style="margin: 20px;" class="button button_flex">+ New Post</a>
+    </div>
+</span>
 {% for post in posts %}
 <section class="blog_page section" id="blog_p">
 
-    <h2 class="section_title">Blog</h2>
-    <span class="section_subtitle">Here you can create, edit, and delete posts!
-        <br><div class="new_post_button">
-            <a href="{% url 'portfolio:blog_new' %}" style="margin: 20px;" class="button button_flex">+ New Post</a>
-        </div>
-    </span>
-
     <div class="blog_page_container container grid">
-        
+
         <div class="blog_post_container container grid" style="border-radius: 5px; padding: 50px;">
-            
+
             <h2>{{ post.titulo }}</h2>
-            <img src="{% static 'portfolio/img/imagemJS1.jpg' %}" height="200px" width="auto" style="border-radius: 5px;">
+            <img src="{% static 'portfolio/img/imagemJS1.jpg' %}" height="200px" width="auto"
+                style="border-radius: 5px;">
             <span style="color: grey;" class="info">
                 (by {{post.autor}} at {{ post.data.day }}/{{ post.data.month }}/{{ post.data.year }})
             </span>
@@ -41,7 +42,7 @@
 
                 <a href="{% url 'portfolio:blog_deslike' post.id %}" class="deslike">👎🏻</a>
                 <span style="color: grey;">{{post.deslike}}</span>
-            </div> 
+            </div>
         </div>
     </div>
     {% endfor %}

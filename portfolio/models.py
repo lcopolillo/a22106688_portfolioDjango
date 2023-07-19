@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ModelForm
 
 class Post(models.Model):
     data = models.DateTimeField(auto_now_add=True)
@@ -13,3 +14,4 @@ class Post(models.Model):
 
     def __str__(self):
         return self.titulo[:20]
+    
